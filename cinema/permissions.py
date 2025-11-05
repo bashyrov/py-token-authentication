@@ -26,14 +26,6 @@ class IsAdminOrIfAuthenticatedReadOnly(BasePermission):
         )
 
 
-class NoDeletePermission(BasePermission):
-
-    def has_permission(self, request, view):
-        if request.method == "DELETE":
-            return MethodNotAllowed
-        return True
-
-
 class GetOrCreatePermission(BasePermission):
 
     def has_permission(self, request, view):

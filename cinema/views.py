@@ -9,7 +9,6 @@ from rest_framework.permissions import IsAuthenticated
 from cinema.models import Genre, Actor, CinemaHall, Movie, MovieSession, Order
 from cinema.permissions import (
     IsAdminOrIfAuthenticatedReadOnly,
-    NoDeletePermission,
     GetListOrCreatePermission,
     GetOrCreatePermission
 )
@@ -65,7 +64,6 @@ class MovieViewSet(viewsets.ModelViewSet):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (
         IsAdminOrIfAuthenticatedReadOnly,
-        NoDeletePermission,
         GetOrCreatePermission
     )
 
